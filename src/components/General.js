@@ -1,36 +1,46 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class General extends Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const {
-      changeFirst,
-      changeLast,
-      changeTitle,
-      changeAdd,
-      changeEmail,
-      changeNum,
-      changeDesc,
-    } = this.props;
-    return (
-      <div className="section">
-        <div className="heading">Personal Information</div>
-        <input type="text" placeholder="First name" onChange={changeFirst} />
-        <input type="text" placeholder="Last name" onChange={changeLast} />
-        <input type="text" placeholder="Title" onChange={changeTitle} />
-        <input type="text" placeholder="Address" onChange={changeAdd} />
-        <input type="email" placeholder="Email" onChange={changeEmail} />
-        <input type="tel" placeholder="Phone number" onChange={changeNum} />
-        <textarea
-          rows="5"
-          maxLength="400"
-          placeholder="Description"
-          onChange={changeDesc}
-        />
-      </div>
-    );
-  }
+export default function General(props) {
+  return (
+    <div className="section">
+      <div className="heading">Personal Information</div>
+      <input
+        type="text"
+        placeholder="First name"
+        onChange={(e) => props.setFirstName(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Last name"
+        onChange={(e) => props.setLastName(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Title"
+        onChange={(e) => props.setTitle(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Address"
+        onChange={(e) => props.setAddress(e.target.value)}
+      />
+
+      <input
+        type="tel"
+        placeholder="Phone number"
+        onChange={(e) => props.setNumber(e.target.value)}
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        onChange={(e) => props.setEmail(e.target.value)}
+      />
+      <textarea
+        rows="5"
+        maxLength="400"
+        placeholder="Description"
+        onChange={(e) => props.setDescription(e.target.value)}
+      />
+    </div>
+  );
 }

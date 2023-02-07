@@ -1,20 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Experience extends Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const { changeJob, changeComp, changeJobStart, changeJobEnd } = this.props;
-    return (
-      <div className="section">
-        <div className="heading">Experience</div>
-        <input type="text" placeholder="Job title" onChange={changeJob} />
-        <input type="text" placeholder="Company" onChange={changeComp} />
-        <input type="text" placeholder="Start year" onChange={changeJobStart} />
-        <input type="text" placeholder="End year" onChange={changeJobEnd} />
-      </div>
-    );
-  }
+export default function Experience(props) {
+  return (
+    <div className="section">
+      <div className="heading">Experience</div>
+      <input
+        type="text"
+        placeholder="Job title"
+        onChange={(e) => props.setJob(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Company"
+        onChange={(e) => props.setCompany(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Start year"
+        onChange={(e) => props.setJobStart(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="End year"
+        onChange={(e) => props.setJobEnd(e.target.value)}
+      />
+    </div>
+  );
 }

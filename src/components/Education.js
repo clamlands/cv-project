@@ -1,25 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Education extends Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const { changeSchool, changeDeg, changeSchoolStart, changeSchoolEnd } =
-      this.props;
-    return (
-      <div className="section">
-        <div className="heading">Education</div>
-        <input type="text" placeholder="School name" onChange={changeSchool} />
-        <input type="text" placeholder="Degree" onChange={changeDeg} />
-        <input
-          type="text"
-          placeholder="Start year"
-          onChange={changeSchoolStart}
-        />
-        <input type="text" placeholder="End year" onChange={changeSchoolEnd} />
-      </div>
-    );
-  }
+export default function Education(props) {
+  return (
+    <div className="section">
+      <div className="heading">Education</div>
+      <input
+        type="text"
+        placeholder="School name"
+        onChange={(e) => props.setSchool(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Degree"
+        onChange={(e) => props.setDegree(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Start year"
+        onChange={(e) => props.setSchoolStart(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="End year"
+        onChange={(e) => props.setSchoolEnd(e.target.value)}
+      />
+    </div>
+  );
 }
